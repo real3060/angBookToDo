@@ -12,4 +12,7 @@ export class AppComponent {
   getName() {
     return this.model.user
   }
+  getItemsList() {
+   return  this.model.items
+  }
 }
