@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Model} from "./model";
+import {Model, TodoItem} from "./model";
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,18 @@ import {Model} from "./model";
 export class AppComponent {
   title = 'ang-book-todo';
   model = new Model();
+
   getName() {
     return this.model.user
   }
   getItemsList() {
-   return  this.model.items
+   return  this.model.items.filter(item=> !item.done)
   }
+
+  addItem(value: string){
+  if(value!= '') {
+    this.model.items.push(new TodoItem(value, false))
+  }
+  }
+
 }
